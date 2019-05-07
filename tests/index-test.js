@@ -59,6 +59,11 @@ describe('findWorkspaceRoot', function() {
       baseDir: path.join(fixtureDirectory, 'yarn-workspace-object-config-no-packages', 'package-a'),
       expectedResult: null,
     },
+    {
+      description: 'sub path of package-a in yarn workspace root',
+      baseDir: path.join(fixtureDirectory, 'yarn-workspace', 'package-a', 'sub-path'),
+      expectedResult: path.join(fixtureDirectory, 'yarn-workspace'),
+    },
   ];
 
   for (let i = 0; i < tests.length; i++) {

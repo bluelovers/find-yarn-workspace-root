@@ -3,6 +3,7 @@
 const fs = require('fs');
 const micromatch = require('micromatch');
 const path = require('path');
+const pkgDir = require('pkg-dir');
 
 module.exports = findWorkspaceRoot;
 
@@ -16,8 +17,11 @@ function findWorkspaceRoot(initial) {
   if (!initial) {
     initial = process.cwd();
   }
+
+  initial = path.normalize(pkgDir.sync(initial));
+
   let previous = null;
-  let current = path.normalize(initial);
+  let current = initial;
 
   do {
     const manifest = readPackageJSON(current);
