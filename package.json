@@ -1,6 +1,6 @@
 {
   "name": "find-yarn-workspace-root2",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com",
   "homepage": "https://github.com/bluelovers/find-yarn-workspace-root#readme",
   "bugs": {
@@ -12,9 +12,6 @@
   },
   "license": "Apache-2.0",
   "author": "Square, Inc.",
-  "files": [
-    "index.d.ts"
-  ],
   "main": "index.js",
   "types": "index.d.ts",
   "directories": {
