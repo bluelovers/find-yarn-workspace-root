@@ -9,8 +9,10 @@ declare namespace findWorkspaceRoot {
     var findWorkspaceRoot: typeof findWorkspaceRoot;
     var readPackageJSON: typeof readPackageJSON;
     var extractWorkspaces: typeof extractWorkspaces;
+    var matchWorkspaces: typeof matchWorkspaces;
     var default: typeof findWorkspaceRoot;
 }
+declare function matchWorkspaces(relativePath: string, workspaces: string[]): boolean;
 declare function extractWorkspaces<T extends string[]>(manifest: {
     workspaces?: {
         packages: T;

@@ -31,7 +31,7 @@ function findWorkspaceRoot(initial?: string): string
 		if (workspaces)
 		{
 			const relativePath = path.relative(current, initial);
-			if (relativePath === '' || micromatch([relativePath], workspaces).length > 0)
+			if (relativePath === '' || matchWorkspaces(relativePath, workspaces))
 			{
 				return current;
 			}
@@ -47,6 +47,11 @@ function findWorkspaceRoot(initial?: string): string
 	while (current !== previous);
 
 	return null;
+}
+
+function matchWorkspaces(relativePath: string, workspaces: string[])
+{
+	return micromatch([relativePath], workspaces).length > 0
 }
 
 function extractWorkspaces<T extends string[]>(manifest: {
@@ -80,6 +85,7 @@ function readPackageJSON<T extends {
 findWorkspaceRoot.findWorkspaceRoot = findWorkspaceRoot;
 findWorkspaceRoot.readPackageJSON = readPackageJSON;
 findWorkspaceRoot.extractWorkspaces = extractWorkspaces;
+findWorkspaceRoot.matchWorkspaces = matchWorkspaces;
 findWorkspaceRoot.default = findWorkspaceRoot;
 
 Object.freeze(findWorkspaceRoot);

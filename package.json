@@ -1,6 +1,6 @@
 {
   "name": "find-yarn-workspace-root2",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com",
   "homepage": "https://github.com/bluelovers/find-yarn-workspace-root#readme",
   "bugs": {
@@ -25,19 +25,20 @@
     "coverage": "npx nyc npm run test",
     "ncu": "npx npm-check-updates -u",
     "prepublishOnly": "npm run ncu && npm run sort-package-json && npm run test",
+    "postpublish": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx sort-package-json ./package.json",
     "test": "npx mocha tests/**/*-test.js"
   },
   "dependencies": {
     "micromatch": "^4.0.2",
-    "pkg-dir": "^4.1.0"
+    "pkg-dir": "^4.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.6.0",
-    "@commitlint/config-conventional": "^7.6.0",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@types/micromatch": "^3.1.0",
     "chai": "^4.2.0",
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "mocha": "^6.1.4",
     "standard-version": "^6.0.1"
   }
