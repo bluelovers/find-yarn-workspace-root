@@ -16,7 +16,14 @@ export function findWorkspaceRoot(initial?: string): string
 		initial = process.cwd();
 	}
 
-	initial = path.normalize(pkgDir.sync(initial));
+	let _pkg = pkgDir.sync(initial);
+
+	if (!_pkg)
+	{
+		return null;
+	}
+
+	initial = path.normalize(_pkg);
 
 	let previous: string = null;
 	let current: string = initial;
