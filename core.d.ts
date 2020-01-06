@@ -4,15 +4,14 @@
  * @param {string} [initial]
  * @return {string|null}
  */
-declare function findWorkspaceRoot(initial?: string): string;
-declare namespace findWorkspaceRoot {
-    var findWorkspaceRoot: typeof findWorkspaceRoot;
-    var readPackageJSON: typeof readPackageJSON;
-    var extractWorkspaces: typeof extractWorkspaces;
-    var isMatchWorkspaces: typeof isMatchWorkspaces;
-    var default: typeof findWorkspaceRoot;
+export declare function findWorkspaceRoot(initial?: string): string;
+export declare namespace findWorkspaceRoot {
+    var findWorkspaceRoot: typeof import("./core").findWorkspaceRoot;
+    var readPackageJSON: typeof import("./core").readPackageJSON;
+    var extractWorkspaces: typeof import("./core").extractWorkspaces;
+    var isMatchWorkspaces: typeof import("./core").isMatchWorkspaces;
+    var default: typeof import("./core").findWorkspaceRoot;
 }
-export default findWorkspaceRoot;
 export declare function checkWorkspaces(current: string, initial: string): {
     done: boolean;
     found: string;
